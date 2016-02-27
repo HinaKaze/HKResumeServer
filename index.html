@@ -1,56 +1,47 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>MuYang's Resume</title>
-    <!-- Bootstrap -->
-    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- 新 Bootstrap 核心 CSS 文件 -->
-	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
-	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-
-	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script>
-				$(document).ready(function(){
-					$.get("/resume",function(data,status){
-						$("#main_content").html(data);
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>MuYang's Resume</title>
+		<!-- Bootstrap -->
+		<link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script>
+					$(document).ready(function(){
+						$.get("/resume",function(data,status){
+							$("#main_content").html(data);
+						});
 					});
-				});
-	</script>
+		</script>
 	</head>
-
-<body style="padding-top:10px">
-    <div class="row">
-        <div class="col-md-2">
-            <!--  <h4 id="tts-content"></h4>
-            <input type="text" id="tts-text" placeholder="输入点什么吧。。。"></div>
-            <br/>
-            <button class="btn btn-sm btn-success" id="tts-submit">发射</button>
-            <br/>
-            <div stype="display:none"><audio id="tts-audio" src="" autoplay loop></audio></div> -->
-        </div>
-        <div class="col-md-8 container" style="text-align:center">
-            <div id="main_content" ></div>
-			        </div>
-        <div class="col-md-2" id="right_list">
-        </div>
-    </div>
-</body>
-
-</html>
+	<body style="padding-top:10px">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6 container" >
+				<div class="row" style="text-align:center">
+					<div class="jumbotron" style="color:#fff;background-color:#333">
+						<h2>沐阳的简历</h2>
+						<h2>golang/java 后端开发</h2>
+					</div>
+				</div>
+				<div id="main_content" class="row jumbotron" style="font-family:Hiragino Sans GB,Microsoft YaHei,宋体"></div>
+			</div>
+			<div class="col-md-3"></div>
+		</body>
+	</html>

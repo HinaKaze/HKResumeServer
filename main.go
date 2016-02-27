@@ -2,7 +2,7 @@ package main
 
 import (
 	"html/template"
-	"log"
+	"io"
 	"os"
 
 	"github.com/russross/blackfriday"
@@ -10,27 +10,7 @@ import (
 	"net/http"
 )
 
-var httpcontent []byte
-
 func main() {
-	files, err := os.Open("resume.md")
-	if err != nil {
-		panic(err.Error())
-	}
-	var bytes []byte = make([]byte, 1024)
-	n, err := files.Read(bytes)
-	if err != nil {
-		panic(err.Error())
-	}
-	log.Println(n)
-	log.Println(string(bytes))
-
-	//for n, err := files.Read(bytes); n > 0 && err != nil; n, err = files.Read(bytes) {
-	//	log.Println(string(bytes))
-	//}
-	httpcontent = blackfriday.MarkdownBasic(bytes)
-	log.Println(string(httpcontent))
-
 	StartHttpServer()
 }
 
@@ -52,5 +32,24 @@ func welcome(rw http.ResponseWriter, req *http.Request) {
 }
 
 func resume(rw http.ResponseWriter, req *http.Request) {
+	files, err := os.Open("resume.md")
+	if err != nil {
+		panic(err.Error())
+	}
+
+	var bytes []byte = make([]byte, 1024)
+	var mdbytes []byte = make([]byte, 0)
+	n, err := files.Read(bytes)
+	if err != nil && err != io.EOF {
+		panic(err.Error())
+	}
+	for n > 0 {
+		mdbytes = append(mdbytes, bytes[:n]...)
+		n, err = files.Read(bytes)
+		if err != nil && err != io.EOF {
+			panic(err.Error())
+		}
+	}
+	httpcontent := blackfriday.MarkdownBasic(mdbytes)
 	rw.Write(httpcontent)
 }
